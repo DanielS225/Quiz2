@@ -7,20 +7,20 @@ public class Tuition {
 	public static void main(String[] args) {
 		
 		Scanner scn = new Scanner(System.in);
-		/*The current tuition rate for 2014-2015 is $12,342 (not including room and board). 
-
-		Write a program that will calculate the total cost of tuition to complete a degree. 
-
-		Assumptions: 
-		1) You're a freshman, this is the first year you'll be paying tuition 
-		2) You plan to attend a standard four year degree. You don't drop out, take time off, etc. 
-		3) Each year there is an percentage increase (variable, based on university costs) 
-
-		Hint: 
-		Initial tuition cost and percentage increases should be variables read by Scanner. 
-
-		Skills used: 
-		Basic math, power function, loop (for loop), display formatted answer. */
+		
+		System.out.println("Program will calculate tuition after four years of college with\nannual compounded percent increases in annual tuition.");
+		System.out.println("First year tuition ($)");
+		double tuition = scn.nextDouble();//initial tuition rate
+		double total = tuition;
+		
+		for (int x = 1; x <= 3; x++) {
+			System.out.println("Rate increase no. " + x + " where rate is given in whole number percent");
+			double pct = scn.nextDouble();//initial tuition rate
+			tuition *= ((pct/100)+1);//not sure why power function is needed
+			total += tuition;
+		}
+		
+		System.out.printf("\nThe final total tuition is: %.2f", total);
 
 		scn.close();
 		
